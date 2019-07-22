@@ -124,3 +124,63 @@ vAge :=
     END;
     dbms_output.put_line('Name : ' || rRow.firstname || ' Age : ' || vAge);
 END;
+
+/*Simple Basic-Loop PL-SQL*/
+DECLARE 
+nI number(2);
+BEGIN
+nI := 1;
+    LOOP
+        dbms_output.put_line('Number : ' || nI);
+        nI := nI + 1;
+        EXIT WHEN nI > 10;
+    END LOOP;
+END;
+/
+
+/*Simple Basic-Loop PL-SQL*/
+DECLARE 
+nI number(2);
+BEGIN
+nI := 1;
+    LOOP
+        dbms_output.put_line('Number : ' || nI);
+        nI := nI + 1;
+        EXIT WHEN nI > 10;
+    END LOOP;
+END;
+/
+
+/*Simple FOR loop PL-SQL*/
+BEGIN
+    FOR i IN 1..5 LOOP
+        dbms_output.put_line('I Value : ' || i);
+    END LOOP;
+END;
+/
+
+
+/*Simple FOR loo Reverse p PL-SQL*/
+BEGIN
+    FOR i IN REVERSE 1..5 LOOP
+        dbms_output.put_line('I Value : ' || i);
+    END LOOP;
+END;
+/
+
+DECLARE
+    nCount number(2);
+BEGIN
+    UPDATE KMR_People
+    SET lastname = 'Updated'
+    WHERE person_id = 3;
+    nCount := SQL%ROWCOUNT;
+    dbms_output.put_line('Rows Updated' || nCount);
+    IF nCount = 1 THEN
+        COMMIT;
+        dbms_output.put_line('Commited');
+    ELSE
+        dbms_output.put_line('Not Commited');
+    END IF;
+END;
+/
