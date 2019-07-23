@@ -184,3 +184,21 @@ BEGIN
     END IF;
 END;
 /
+
+/*Simple Explicit Cursors PL-SQL*/
+DECLARE
+vName KMR_People.firstname%TYPE;
+vPerID KMR_People.person_id%TYPE;
+CURSOR kmrcur IS
+    SELECT firstname, person_id
+    FROM KMR_People;
+BEGIN
+    OPEN kmrcur;
+    LOOP
+        FETCH kmrcur INTO vName, vPerID;
+        EXIT WHEN kmrcur%NOTFOUND;
+        dbms_output.put_line('Name: '||vName ||' PersonID: '||vPerID);
+    END LOOP;
+    CLOSE kmrcur;
+END;
+/
