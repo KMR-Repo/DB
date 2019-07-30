@@ -1,0 +1,29 @@
+/*CONSTRAINTS*/
+/*INFO: 
+1.If we are not giving 
+name for constraint oracle DB
+will automatically generate a name
+
+2.If we are not giving name for 
+constraint no need to mention 
+CONSTRAINT keyword*/
+
+/*1.NOT NULL CONSTRAINT*/
+/*1.1. While creating table itself*/
+CREATE TABLE KMR_PEOPLE(
+ID NUMBER CONSTRAINT KMR_TABLE_ID_NN NOT NULL,
+NAME VARCHAR2(100) CONSTRAINT KMR_TABLE_NAME_NN NOT NULL,
+STREET VARCHAR2(100),
+CITY VARCHAR2(100));
+
+SELECT * FROM KMR_PEOPLE;
+INSERT INTO KMR_PEOPLE (ID, NAME, STREET, CITY)
+VALUES ('1','KMR','Street1','City1');
+
+UPDATE KMR_PEOPLE
+SET DOOR_NO = 10;
+
+/*1.2.After creating table*/
+ALTER TABLE KMR_PEOPLE
+MODIFY DOOR_NO NUMBER CONSTRAINT KMR_PEOPLE_DOOR_NO_NN NOT NULL;
+    
