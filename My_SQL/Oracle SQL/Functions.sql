@@ -46,3 +46,12 @@ SELECT
     TRUNC(TO_DATE('29-AUG-2019'),'YEAR'),
     TRUNC(TO_DATE('29-MAY-2019'),'YEAR')
 FROM DUAL;
+
+/*4. Conversion Functions*/
+SELECT TO_DATE(TO_NUMBER(TO_CHAR(TO_DATE(TO_CHAR(SYSDATE, 'MONTH'), 'MM'),'YYYY')) + 10, 'YYYY')FROM DUAL;
+
+
+/*5. General Functions
+NVL : always evaluates both arguments
+COALESCE : doesn't evaluate anything after it finds the first non-NULL argument
+*/
